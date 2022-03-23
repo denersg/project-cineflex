@@ -28,7 +28,7 @@ body{
 
 /* Esse é o topo que ficará em todas as telas, menos na de SUCESSO */
 .top-status{
-    background-color: orange;
+    /* background-color: orange; */
     width: 375px;
     height: 110px;
 
@@ -48,3 +48,18 @@ body{
 
 /* Esse é o topo que ficará somente na tela de SUCESSO */
 /* .top-status-success{} */
+
+
+
+
+
+
+/* --------- Configurações do Scroll --------- */
+::-webkit-scrollbar{
+    display: none;
+}
+
+::-webkit-scrollbar-thumb{
+    background: rgb(138, 138, 138);
+    border-radius: 10px;
+}

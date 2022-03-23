@@ -9,6 +9,7 @@ export default function App(){
                 <Header />
                 <Routes>
                     <Route path="/" element={<Movies/>}></Route>
+                    <Route path="/"></Route>
                 </Routes>
             </BrowserRouter>
         </div>

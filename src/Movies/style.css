@@ -11,6 +11,8 @@
 
     position: relative;
     top: 177px;
+
+    padding-top: 5px;
 }
 
 .movie{
@@ -31,8 +33,4 @@
 .movie img{
     width: 129px;
     height: 193px;
-}
-
-.movie:hover{
-    background-color: rgb(66, 165, 245, 0.5);
 }
