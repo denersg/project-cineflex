@@ -1,0 +1,14 @@
+.catalog{
+    background-color: aqua;
+    width: 375px;
+    height: 700px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    overflow-y: auto;
+
+    position: relative;
+    top: 177px;
+}

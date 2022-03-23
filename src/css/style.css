@@ -1,0 +1,50 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    color: #293845;
+
+    background-color: #e5e5e5;
+}
+
+*{
+    --color-header-button-available: #C3CFD9;
+    --color-footer: #DFE6ED;
+    --color-button-unavailable: #FBE192;
+    --color-button-selected: #8DD7CF;
+    --color-header-font-time-button: #E8833A;
+}
+
+.content{
+    background-color: #fff;
+    width: 375px;
+    height: 877px;
+
+    position: relative;
+}
+
+/* Esse é o topo que ficará em todas as telas, menos na de SUCESSO */
+.top-status{
+    background-color: orange;
+    width: 375px;
+    height: 110px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    top: 67px;
+
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: 0.04em;
+}
+
+/* Esse é o topo que ficará somente na tela de SUCESSO */
+/* .top-status-success{} */

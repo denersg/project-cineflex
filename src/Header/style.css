@@ -1,0 +1,19 @@
+.header{
+    width: 375px;
+    height: 67px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+    font-weight: normal;
+    font-size: 34px;
+    line-height: 40px;
+    color: var(--color-header-font-time-button);
+
+    background-color: var(--color-header-button-available);
+}
