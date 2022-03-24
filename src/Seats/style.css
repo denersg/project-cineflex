@@ -1,0 +1,38 @@
+.seat-box{
+    background-color: red;
+    width: 327px;
+    height: 203px;
+
+    position: relative;
+    top: 158px;
+    left: 24px;
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.seat-number{
+    /* background-color: blue; */
+    width: 26px;
+    height: 26px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* topo | direita | baixo | esquerda */
+    margin: 0px 2px 0px 2px;
+    /* Arredondar as bordas pra tranformar em circunferencia */
+    /* border-radius: 50%; */
+
+    background: #C3CFD9;
+    border: 1px solid #808F9D;
+    border-radius: 12px;
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 13px;
+    letter-spacing: 0.04em;
+}

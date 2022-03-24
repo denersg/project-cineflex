@@ -7,6 +7,14 @@ import "./style.css";
 
 const SHOWTIME_URL = "https://mock-api.driven.com.br/api/v5/cineflex/showtimes/";
 
+function Seat({ id, name, isAvailable }){
+    return(
+        <div className="seat-number">
+            <span>{name}</span>
+        </div>
+    );
+}
+
 function SearchSeatListForASession(){
     const { idSession } = useParams();
     const [seats, setSeats] = useState([]);
@@ -15,13 +23,21 @@ function SearchSeatListForASession(){
         const promise = axios.get(`${SHOWTIME_URL}${idSession}/seats`);
         
         promise.then(response => {
-            setSessions(response.data.days);
+            setSeats(response.data.seats);
         });
         promise.catch(error => {
             console.log("Status code: " + error.response.status);
             console.log("Opa! Ocorreu um erro: " + error.response.data);
         });
     }, []);
+
+    return(
+        <section className="seat-box">
+            {seats.map(seat => {
+                return <Seat key={seat.id} {...seat} />
+            })}
+        </section>
+    );
 }
 
 export default function Seats(){
