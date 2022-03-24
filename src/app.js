@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./Header";
 import Movies from "./Movies";
+import Sessions from "./Sessions";
 
 export default function App(){
     return(
@@ -9,7 +10,7 @@ export default function App(){
                 <Header />
                 <Routes>
                     <Route path="/" element={<Movies/>}></Route>
-                    <Route path="/"></Route>
+                    <Route path="/sessions/:idMovie" element={<Sessions/>}></Route>
                 </Routes>
             </BrowserRouter>
         </div>

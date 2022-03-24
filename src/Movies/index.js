@@ -38,7 +38,7 @@ function FetchMovieCatalogFromServer(){
             {movies.map((m) => {
                 return <Movie key={m.id} movie={m} /> /*Aqui eu estou enviando o objeto completo com todos os suas propriedades:
                                                         id, title, posterURL, overview e releaseDate. Tudo tá sendo enviado
-                                                        dentro de 'f' e lá em cima eu desestruturo.*/
+                                                        dentro de 'm' e lá em cima eu desestruturo.*/
             })}
         </div>
     );
