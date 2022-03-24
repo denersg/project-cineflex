@@ -31,6 +31,10 @@ function FetchMovieCatalogFromServer(){
         promise.then((response) => {
             setMovies(response.data);
         });
+        promise.catch(error => {
+            console.log("Status code: " + error.response.status);
+            console.log("Opa! Ocorreu um erro: " + error.response.data);
+        });
     }, [] );
     
     return(

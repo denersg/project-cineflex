@@ -42,6 +42,10 @@ function FetchMovieSessionsFromServer(){
         promise.then(response => {
             setSessions(response.data.days);
         });
+        promise.catch(error => {
+            console.log("Status code: " + error.response.status);
+            console.log("Opa! Ocorreu um erro: " + error.response.data);
+        });
     }, []);
 
     return(
@@ -65,10 +69,3 @@ export default function Sessions(){
 
 // Vou tentar fazer o 'Footer' (que aparece somente em algumas telas)
 // como um componente separado e importá-lo somente onde eu precisar.
-
-/*
-Também vou substituir as URLs por variáveis globais, já que são
-quase fixas, e mudar somente o caminho com 'template-strings'
-*/
-
-/*Tenho que tratar os erros com o 'catch'*/
