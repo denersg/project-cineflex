@@ -8,7 +8,7 @@ function Movie({ movie }){
     const { id, title, posterURL } = movie;
     return(
         <section className="movie">
-            <Link to={`/sessoes/${id}`}>
+            <Link to={`/sessions/${id}`}>
                 <img src={posterURL} alt={title} />
             </Link>
         </section>

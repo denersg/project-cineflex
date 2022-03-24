@@ -1,7 +1,10 @@
+import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import "./style.css";
+
+const MOVIE_URL = "https://mock-api.driven.com.br/api/v5/cineflex/movies/";
 
 function BuildSchedule({ id, name }){
     return(
@@ -13,17 +16,15 @@ function BuildSchedule({ id, name }){
     );
 }
 
-function Session({ session }){
-    const { id, weekday, date, showtimes} = session;
-
+function Session({ weekday, date, showtimes}){
     return(
         <div className="individual-session">
             <div>
                 <span className="week-date">{weekday} - {date}</span>
             </div>
             <div className="schedules">
-                {showtimes.map(s => {
-                    return <BuildSchedule key={s.id} schedule={s} />
+                {showtimes.map(schedule => {
+                    return <BuildSchedule key={schedule.id} {...schedule} />
                 })}
             </div>
         </div>
@@ -35,7 +36,7 @@ function FetchMovieSessionsFromServer(){
     const [sessions, setSessions] = useState([]);
 
     useEffect(() => {
-        const promise = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/movies/${idMovie}/showtimes`);
+        const promise = axios.get(`${MOVIE_URL}${idMovie}/showtimes`);
         
         // Em caso de sucesso
         promise.then(response => {
@@ -46,7 +47,7 @@ function FetchMovieSessionsFromServer(){
     return(
         <section className="session-box">
             {sessions.map(session => {
-                return <Session key={session.id} session={s} />
+                return <Session key={session.id} {...session} />
             })}
         </section>
     );

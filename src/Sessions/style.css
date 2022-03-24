@@ -1,0 +1,53 @@
+.session-box{
+    width: 300px;
+    height: 700px;
+    position: absolute;
+    top: 177px;
+    left: 24px;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    /*Permite esconder os elementos q/ escaparem da tela*/
+    overflow: hidden;
+}
+
+.individual-session{
+    width: 250px;
+    height: 120px;
+}
+
+.week-date{
+    height: 50px;
+
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 23px;
+}
+
+.schedules{
+    width: 172px;
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.session-box .schedule{
+    width: 82px;
+    height: 43px;
+
+    background: #E8833A;
+    border-radius: 3px;
+    border: 0px;
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: 0.02em;
+    color: #fff;
+
+    /*Transforma a seta do ponteiro em mãozinha*/
+    cursor: pointer;
+}
