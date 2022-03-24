@@ -30,6 +30,10 @@
     margin-bottom: 11px;
 }
 
+.movie:hover{
+    background-color: rgba(21, 101, 192, 0.5);
+}
+
 .movie img{
     width: 129px;
     height: 193px;

@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 
 import "./style.css";
 
-function Movie({ movie }){
-    const { id, title, posterURL } = movie;
+function Movie({ id, title, posterURL }){
+    // const { id, title, posterURL } = movie;
     return(
         <section className="movie">
             <Link to={`/sessions/${id}`}>
@@ -39,8 +39,8 @@ function FetchMovieCatalogFromServer(){
     
     return(
         <div className="catalog">
-            {movies.map((m) => {
-                return <Movie key={m.id} movie={m} /> /*Aqui eu estou enviando o objeto completo com todos os suas propriedades:
+            {movies.map(movie => {
+                return <Movie key={movie.id} {...movie} /> /*Aqui eu estou enviando o objeto completo com todos os suas propriedades:
                                                         id, title, posterURL, overview e releaseDate. Tudo tá sendo enviado
                                                         dentro de 'm' e lá em cima eu desestruturo.*/
             })}

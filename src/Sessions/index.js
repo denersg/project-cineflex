@@ -2,6 +2,7 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
+import Footer from "../Footer";
 import "./style.css";
 
 const MOVIE_URL = "https://mock-api.driven.com.br/api/v5/cineflex/movies/";
@@ -42,6 +43,7 @@ function FetchMovieSessionsFromServer(){
         promise.then(response => {
             setSessions(response.data.days);
         });
+        //Em caso de falha
         promise.catch(error => {
             console.log("Status code: " + error.response.status);
             console.log("Opa! Ocorreu um erro: " + error.response.data);
@@ -63,9 +65,8 @@ export default function Sessions(){
             <h3 className="top-status">Selecione o horário</h3>
 
             <FetchMovieSessionsFromServer />
+
+            <Footer />
         </>
     );
 }
-
-// Vou tentar fazer o 'Footer' (que aparece somente em algumas telas)
-// como um componente separado e importá-lo somente onde eu precisar.

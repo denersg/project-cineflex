@@ -8,8 +8,7 @@
     display: flex;
     flex-wrap: wrap;
 
-    /*Permite esconder os elementos q/ escaparem da tela*/
-    overflow: hidden;
+    overflow: auto;
 }
 
 .individual-session{
@@ -48,6 +47,10 @@
     letter-spacing: 0.02em;
     color: #fff;
 
-    /*Transforma a seta do ponteiro em mãozinha*/
     cursor: pointer;
+}
+
+.schedule:hover{
+    background-color: #ff964b;
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.1);
 }
