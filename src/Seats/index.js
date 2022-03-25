@@ -32,10 +32,47 @@ function SearchSeatListForASession(){
     }, []);
 
     return(
-        <section className="seat-box">
-            {seats.map(seat => {
-                return <Seat key={seat.id} {...seat} />
-            })}
+        <section className="seats-and-description">
+            <section className="seat-box">
+                {seats.map(seat => {
+                    return <Seat key={seat.id} {...seat} />
+                })}
+            </section>
+
+            <div className="description">
+                <div className="box-selected">
+                    <div></div>
+                    <p>Selecionado</p>
+                </div>
+                <div className="box-available">
+                    <div></div>
+                    <p>Disponível</p>
+                </div>
+                <div className="box-unavailable">
+                    <div></div>
+                    <p>Indisponível</p>
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function BuyerRegistration(){
+    return(
+        <section className="booking-buyer">
+            <div className="name">
+                Nome do comprador:
+            </div>
+            <input type="text" placeholder="Digite seu nome..." />
+            {/* --------------------------------------------------- */}
+            <div className="cpf">
+                CPF do comprador:
+            </div>
+            <input type="text" placeholder="Digite seu CPF..." />
+            {/* --------------------------------------------------- */}
+            <div className="book-button">
+                <button>Reservar assento(s)</button>
+            </div>
         </section>
     );
 }
@@ -45,6 +82,7 @@ export default function Seats(){
         <>
             <h3 className="top-status">Selecione o(s) assento(s)</h3>
             <SearchSeatListForASession />
+            <BuyerRegistration />
         </>
     );
 }
