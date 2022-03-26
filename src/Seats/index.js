@@ -78,11 +78,35 @@ function BuyerRegistration(){
 }
 
 export default function Seats(){
+    const { idSession } = useParams();
+    const [seats, setSeats] = useState([]);
+
+    const attributeDay = {...seats.day};
+    const attributeMovie = {...seats.movie};
+
+    useEffect(() => {
+        const promise = axios.get(`${SHOWTIME_URL}${idSession}/seats`);
+        
+        promise.then(response => {
+            setSeats(response.data);
+        });
+        promise.catch(error => {
+            console.log("Status code: " + error.response.status);
+            console.log("Opa! Ocorreu um erro: " + error.response.data);
+        });
+    }, []);
+
     return(
         <>
             <h3 className="top-status">Selecione o(s) assento(s)</h3>
             <SearchSeatListForASession />
             <BuyerRegistration />
+            <Footer
+                weekday={attributeDay.weekday}
+                movieImage={attributeMovie.posterURL}
+                movieTitle={attributeMovie.title}
+                time={seats.name}
+            />
         </>
     );
 }

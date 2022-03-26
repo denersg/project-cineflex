@@ -60,13 +60,30 @@ function FetchMovieSessionsFromServer(){
 }
 
 export default function Sessions(){
+    const { idMovie } = useParams();
+    const [footerMovies, setFooterMovies] = useState([]);
+
+    const { posterURL, title } = footerMovies;
+
+    useEffect(() => {
+        const promise = axios.get(`${MOVIE_URL}${idMovie}/showtimes`);
+
+        promise.then(response => {
+            setFooterMovies(response.data);
+        });
+        promise.catch(error => {
+            console.log("Status code: " + error.response.status);
+            console.log("Opa! Ocorreu um erro: " + error.response.data);
+        });
+    }, []);
+    
     return(
         <>
             <h3 className="top-status">Selecione o horário</h3>
 
             <FetchMovieSessionsFromServer />
 
-            <Footer />
+            <Footer image={posterURL} title={title} />
         </>
     );
 }

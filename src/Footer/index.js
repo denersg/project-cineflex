@@ -1,40 +1,46 @@
-import axios from "axios";
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-
 import "./style.css";
 
-const MOVIE_URL = "https://mock-api.driven.com.br/api/v5/cineflex/movies/";
+export default function Footer(props){
+    // Rodapé da tela de assentos
+    if(props.weekday !== undefined){
+        return(
+            <footer className="footer-box">
+                <div className="img-box">
+                    <div className="frame">
+                        <img
+                            src={props.movieImage}
+                            alt={props.movieTitle}
+                        />
+                    </div>
+                </div>
 
-export default function Footer(){
-    const { idMovie } = useParams();
-    const [footerMovies, setFooterMovies] = useState([]);
+                <div className="text-box">
+                    <div className="order-status">
+                        <span>
+                            <p>{props.movieTitle}</p>
+                            <p>{props.weekday} - {props.time}</p>
+                        </span>
+                    </div>
+                </div>
+            </footer>
+        );
+    }
 
-    useEffect(() => {
-        const promise = axios.get(`${MOVIE_URL}${idMovie}/showtimes`);
-
-        //Quando sucesso
-        promise.then(response => {
-            setFooterMovies(response.data);
-        });
-        //Quando erro
-        promise.catch(error => {
-            console.log("Status code: " + error.response.status);
-            console.log("Opa! Ocorreu um erro: " + error.response.data);
-        });
-    }, []);
-
+    // Rodapé da tela de sessões
     return(
         <footer className="footer-box">
             <div className="img-box">
                 <div className="frame">
-                    <img src={footerMovies.posterURL} alt={footerMovies.title} />
+                    <img
+                        src={props.image}
+                        alt={props.title}
+                    />
                 </div>
             </div>
 
             <div className="text-box">
                 <div className="order-status">
-                    {footerMovies.title}
+                    <span>{props.title}</span>
                 </div>
             </div>
         </footer>
