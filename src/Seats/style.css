@@ -36,6 +36,21 @@
     letter-spacing: 0.04em;
 }
 
+.available{
+    background-color: var(--color-header-button-available);
+    border: 1px solid #7B8B99;
+}
+
+.unavailable{
+    background-color: var(--color-button-unavailable);
+    border: 1px solid #F7C52B;
+}
+
+.selected{
+    background-color: var(--color-button-selected);
+    border: 1px solid #1AAE9E;
+}
+
 /************************** PARTE DA LEGENDA **************************/
 
 .seats-and-description .description{

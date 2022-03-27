@@ -7,10 +7,16 @@ import "./style.css";
 
 const SHOWTIME_URL = "https://mock-api.driven.com.br/api/v5/cineflex/showtimes/";
 
-function Seat({ id, name, isAvailable }){
+function Seat({ id, name, isAvailable, selectSeat, selected}){
     return(
-        <div className="seat-number">
-            <span>{name}</span>
+        <div
+            className={`seat-number cursor
+            ${!isAvailable ? "unavailable" : ""}
+            ${selected.find(e => e.id === id) ? "selected" : ""}
+            `}
+            onClick={() => selectSeat({ id, name, isAvailable})}
+        >
+            {name}
         </div>
     );
 }
@@ -18,6 +24,7 @@ function Seat({ id, name, isAvailable }){
 function SearchSeatListForASession(){
     const { idSession } = useParams();
     const [seats, setSeats] = useState([]);
+    const [selected, setSelected] = useState([]);
 
     useEffect(() => {
         const promise = axios.get(`${SHOWTIME_URL}${idSession}/seats`);
@@ -31,11 +38,25 @@ function SearchSeatListForASession(){
         });
     }, []);
 
+    function selectSeat(props){
+        if(props.isAvailable === false){
+            alert("Esse assento não está disponível");
+            return;
+        }
+        // Verifica se já está selecionado e remove a seleção
+        if(selected.find(e => e.id === props.id)){
+            setSelected(selected.filter(selected => selected.id !== props.id));
+            return;
+        }
+        
+        setSelected([...selected, props]);
+    }
+
     return(
         <section className="seats-and-description">
             <section className="seat-box">
                 {seats.map(seat => {
-                    return <Seat key={seat.id} {...seat} />
+                    return <Seat key={seat.id} {...seat} selectSeat={selectSeat} selected={selected} />
                 })}
             </section>
 

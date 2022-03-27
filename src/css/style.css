@@ -49,7 +49,9 @@ body{
 /* Esse é o topo que ficará somente na tela de SUCESSO */
 /* .top-status-success{} */
 
-
+.cursor{
+    cursor: pointer;
+}
 
 
 
