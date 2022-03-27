@@ -61,13 +61,17 @@ function SearchSeatListForASession({ setBookingData, hour, airDate, movieTitle }
         selected.forEach(chosenSeats => {
             ids.push(chosenSeats.id);
         });
+
         const customerReservation = {buyerName, buyerCpf, ids};
-        // console.log(customerReservation)
 
         const isIdsEmpty = ids.length === 0;
         // Verifica se todas as informações foram preenchidas
         if(buyerCpf === "" || buyerName === "" || isIdsEmpty){
             alert("Por favor, preencha todas as informações para continuar!");
+            return;
+        }
+        if(buyerCpf.length !== 11){
+            alert("Por favor, digite apenas os números do seu CPF!");
             return;
         }
 
@@ -138,47 +142,6 @@ function SearchSeatListForASession({ setBookingData, hour, airDate, movieTitle }
     );
 }
 
-// Entrada dos dados e reserva do comprador
-function BuyerRegistration(){
-    const [buyerName, setBuyerName] = useState("");
-    const [buyerCpf, setBuyerCpf] = useState("");
-
-    // useEffect(() => {
-    //     const promise = post("https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many", );
-    // });
-
-    function createBuyerSeatReservation(){
-        const booking = {buyerName, buyerCpf};
-    }
-
-    return(//PAREI EM 01:18:00
-        <section className="booking-buyer">
-            <div className="name">
-                Nome do comprador:
-            </div>
-            <input 
-                type="text" 
-                placeholder="Digite seu nome..." 
-                onChange={event => setBuyerName(event.target.value)}
-                value={buyerName}
-            />
-            {/* --------------------------------------------------- */}
-            <div className="cpf">
-                CPF do comprador:
-            </div>
-            <input 
-                type="text" 
-                placeholder="Digite seu CPF..." 
-                onChange={event => setBuyerCpf(event.target.value)}
-                value={buyerCpf}
-            />
-            {/* --------------------------------------------------- */}
-            <div className="book-button">
-                <button>Reservar assento(s)</button>
-            </div>
-        </section>
-    );
-}
 
 export default function Seats({ setBookingData }){
     const { idSession } = useParams();
@@ -202,8 +165,12 @@ export default function Seats({ setBookingData }){
     return(
         <>
             <h3 className="top-status">Selecione o(s) assento(s)</h3>
-            <SearchSeatListForASession setBookingData={setBookingData} hour={seats.name} airDate={attributeDay.date} movieTitle={attributeMovie.title} />
-            {/* <BuyerRegistration /> */}
+            <SearchSeatListForASession
+                setBookingData={setBookingData}
+                hour={seats.name}
+                airDate={attributeDay.date}
+                movieTitle={attributeMovie.title}
+            />
             <Footer
                 weekday={attributeDay.weekday}
                 movieImage={attributeMovie.posterURL}

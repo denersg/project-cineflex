@@ -25,7 +25,7 @@ export default function Footer(props){
             </footer>
         );
     }
-
+    
     // Rodapé da tela de sessões
     return(
         <footer className="footer-box">

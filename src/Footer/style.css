@@ -1,5 +1,4 @@
 .footer-box{
-    /* background-color: red; */
     width: 375px;
     height: 117px;
 
@@ -13,7 +12,6 @@
 }
 
 .img-box{
-    /* background-color: blue; */
     width: 100px;
     height: 117px;
 
@@ -23,7 +21,6 @@
 }
 
 .frame{
-    /* background-color: goldenrod; */
     width: 64px;
     height: 89px;
 
@@ -42,7 +39,6 @@
 }
 
 .text-box{
-    /* background-color: green; */
     width: 250px;
     height: 117px;
 
@@ -51,7 +47,6 @@
 }
 
 .order-status{
-    /* background-color: hotpink; */
     width: 250px;
     height: 40px;
     

@@ -4,4 +4,4 @@ import "./css/reset.css";
 import "./css/style.css";
 
 const root = document.querySelector(".root");
-ReactDOM.render(<App/>, root);
+ReactDOM.render(<App />, root);

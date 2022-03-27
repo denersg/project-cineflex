@@ -13,10 +13,10 @@ export default function App(){
             <BrowserRouter>
                 <Header />
                 <Routes>
-                    <Route path="/" element={<Movies/>}></Route>
-                    <Route path="/sessions/:idMovie" element={<Sessions/>}></Route>
-                    <Route path="/seats/:idSession" element={<Seats setBookingData={setBookingData}/>}></Route>
-                    <Route path="/success" element={<Success {...bookingData}/>}></Route>
+                    <Route path="/" element={<Movies />}></Route>
+                    <Route path="/sessions/:idMovie" element={<Sessions />}></Route>
+                    <Route path="/seats/:idSession" element={<Seats setBookingData={setBookingData} />}></Route>
+                    <Route path="/success" element={<Success {...bookingData} />}></Route>
                 </Routes>
             </BrowserRouter>
         </div>

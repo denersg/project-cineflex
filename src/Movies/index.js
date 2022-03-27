@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import "./style.css";
 
 function Movie({ id, title, posterURL }){
-    // const { id, title, posterURL } = movie;
     return(
         <section className="movie">
             <Link to={`/sessions/${id}`}>
@@ -17,17 +16,10 @@ function Movie({ id, title, posterURL }){
 
 function FetchMovieCatalogFromServer(){
     const [movies, setMovies] = useState([]);
-    /*Usamos o 'useState' e iniciamos ele com uma array vazia. Depois,
-    usamos o 'useEffect' para visualizar qualquer mudança ocorrida
-    nessa array. Quando houver uma mudança array, o 'useEffect' é
-    atualizado e executa a função dentro dele.*/
+    
     useEffect(() => {
-        // Faz uma requisição e espera uma reposta q/ será armazenada
-        // no 'promise'
         const promise = axios.get("https://mock-api.driven.com.br/api/v5/cineflex/movies");
 
-        // Quando a resposta chegar, é pra ele executar a 'Arrow-function'
-        // e chamar a outra função 'setMovies'.
         promise.then((response) => {
             setMovies(response.data);
         });
@@ -40,9 +32,7 @@ function FetchMovieCatalogFromServer(){
     return(
         <div className="catalog">
             {movies.map(movie => {
-                return <Movie key={movie.id} {...movie} /> /*Aqui eu estou enviando o objeto completo com todos os suas propriedades:
-                                                        id, title, posterURL, overview e releaseDate. Tudo tá sendo enviado
-                                                        dentro de 'm' e lá em cima eu desestruturo.*/
+                return <Movie key={movie.id} {...movie} />
             })}
         </div>
     );

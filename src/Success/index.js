@@ -32,7 +32,9 @@ export default function Success({ title, date, time, seats, name, cpf }){
                 </div>
 
                 <div className="home-button-box">
-                    <button>Voltar pra Home</button>
+                    <button className="cursor">
+                        <a href="http://localhost:3000/">Voltar pra Home</a>
+                    </button>
                 </div>
             </section>
         </div>

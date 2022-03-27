@@ -26,9 +26,7 @@ body{
     position: relative;
 }
 
-/* Esse é o topo que ficará em todas as telas, menos na de SUCESSO */
 .top-status{
-    /* background-color: orange; */
     width: 375px;
     height: 110px;
 
@@ -46,15 +44,9 @@ body{
     letter-spacing: 0.04em;
 }
 
-/* Esse é o topo que ficará somente na tela de SUCESSO */
-/* .top-status-success{} */
-
 .cursor{
     cursor: pointer;
 }
-
-
-
 
 /* --------- Configurações do Scroll --------- */
 ::-webkit-scrollbar{

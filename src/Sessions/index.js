@@ -80,9 +80,7 @@ export default function Sessions(){
     return(
         <>
             <h3 className="top-status">Selecione o horário</h3>
-
             <FetchMovieSessionsFromServer />
-
             <Footer image={posterURL} title={title} />
         </>
     );
