@@ -10,9 +10,10 @@ const SHOWTIME_URL = "https://mock-api.driven.com.br/api/v5/cineflex/showtimes/"
 function Seat({ id, name, isAvailable, selectSeat, selected}){
     return(
         <div
-            className={`seat-number cursor
-            ${!isAvailable ? "unavailable" : ""}
-            ${selected.find(e => e.id === id) ? "selected" : ""}
+            className={
+                `seat-number cursor
+                ${!isAvailable ? "unavailable" : ""}
+                ${selected.find(e => e.id === id) ? "selected" : ""}
             `}
             onClick={() => selectSeat({ id, name, isAvailable})}
         >
@@ -78,18 +79,40 @@ function SearchSeatListForASession(){
     );
 }
 
+// Entrada dos dados e reserva do comprador
 function BuyerRegistration(){
-    return(
+    const [buyerName, setBuyerName] = useState("");
+    const [buyerCpf, setBuyerCpf] = useState("");
+
+    // useEffect(() => {
+    //     const promise = post("https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many", );
+    // });
+
+    function createBuyerSeatReservation(){
+        const booking = {buyerName, buyerCpf};
+    }
+
+    return(//PAREI EM 01:18:00
         <section className="booking-buyer">
             <div className="name">
                 Nome do comprador:
             </div>
-            <input type="text" placeholder="Digite seu nome..." />
+            <input 
+                type="text" 
+                placeholder="Digite seu nome..." 
+                onChange={event => setBuyerName(event.target.value)}
+                value={buyerName}
+            />
             {/* --------------------------------------------------- */}
             <div className="cpf">
                 CPF do comprador:
             </div>
-            <input type="text" placeholder="Digite seu CPF..." />
+            <input 
+                type="text" 
+                placeholder="Digite seu CPF..." 
+                onChange={event => setBuyerCpf(event.target.value)}
+                value={buyerCpf}
+            />
             {/* --------------------------------------------------- */}
             <div className="book-button">
                 <button>Reservar assento(s)</button>
