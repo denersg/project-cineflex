@@ -1,0 +1,91 @@
+.recipient{
+    display: flex;
+    justify-content: center;
+}
+
+.top-status-success{
+    /* background-color: orange; */
+    width: 190px;
+    height: 110px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    top: 67px;
+
+    text-align: center;
+    color: #247A6B;
+}
+
+.content-success{
+    /* background-color: aquamarine; */
+    width: 374px;
+    height: 600px;
+
+    position: relative;
+    top: 177px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.top-status-success, .movie-session-title, .tickets-title, .buyer-title{
+    margin-bottom: 10px;
+
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0.04em;
+}
+
+.buyer-data{
+    /* background-color: tomato; */
+    width: 327px;
+    height: 358px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.movie-session, .tickets, .buyer{
+    /* background-color: yellow; */
+    height: 110px;
+}
+
+.movie-session p, .tickets p, .buyer p{
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 26px;
+    letter-spacing: 0.04em;
+}
+
+/* ------ Parte do botão HOME de voltar ------ */
+
+.home-button-box{
+    /* background-color: springgreen; */
+    height: 104px;
+    
+    display: flex;
+    align-items: flex-end;
+}
+
+.home-button-box button{
+    width: 225px;
+    height: 42px;
+    left: 74px;
+    top: 622px;
+
+    background: #E8833A;
+    border-radius: 3px;
+    border: none;
+
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: 0.04em;
+    color: #FFFFFF;
+}
